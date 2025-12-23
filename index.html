@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annibook合同会社 | 公式サイト</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #3a2b23;
+      --brown: #a9795f;
+      --amber: #d7a774;
+      --sand: #f6eee6;
+      --cream: #fdfaf6;
+      --white: #ffffff;
+      --gray: #6e5d53;
+      --shadow: 0 12px 24px rgba(58, 43, 35, 0.1);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans JP', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Zen Maru Gothic', 'Noto Sans JP', system-ui, sans-serif;
+      margin: 0 0 12px;
+      color: var(--ink);
+    }
+    a { color: inherit; text-decoration: none; }
+    .container {
+      width: min(1180px, 92vw);
+      margin: 0 auto;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(253, 250, 246, 0.9);
+      border-bottom: 1px solid rgba(123, 75, 42, 0.08);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.4px;
+    }
+    .brand-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      background: var(--sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      flex-shrink: 0;
+    }
+    .brand-badge svg {
+      width: 24px;
+      height: 24px;
+      fill: #835a44;
+      display: block;
+    }
+    nav ul {
+      display: flex;
+      gap: 18px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      align-items: center;
+    }
+    nav a {
+      font-weight: 600;
+      color: var(--ink);
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    nav a:hover { background: rgba(215, 167, 116, 0.18); color: var(--brown); }
+    .primary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      background: linear-gradient(120deg, #a9795f, #d7a774);
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      box-shadow: var(--shadow);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .primary-btn:hover { transform: translateY(-1px); box-shadow: 0 16px 32px rgba(137, 100, 79, 0.28); }
+    .hero {
+      position: relative;
+      padding: 82px 0 62px;
+      overflow: hidden;
+      background: #e6d0c0;
+    }
+    .hero::before, .hero::after { display: none; }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      align-items: center;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--brown);
+      font-weight: 700;
+      box-shadow: 0 10px 20px rgba(59, 42, 26, 0.14);
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 10px 0 16px;
+      line-height: 1.3;
+      letter-spacing: 0.5px;
+    }
+    .lead {
+      font-size: 16px;
+      color: var(--gray);
+      margin: 0 0 18px;
+    }
+    .stat-lines {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .stat {
+      padding: 4px 0 0 14px;
+      border-left: 3px solid rgba(215, 167, 116, 0.65);
+    }
+    .stat h3 { margin: 0 0 6px; font-size: 18px; }
+    .section {
+      padding: 58px 0 52px;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .section-header p {
+      margin: 0;
+      color: var(--gray);
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(215, 167, 116, 0.16);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.2px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 16px 16px 14px;
+      box-shadow: 0 10px 22px rgba(58, 43, 35, 0.08);
+      border: 1px solid rgba(131, 90, 68, 0.12);
+      display: grid;
+      gap: 6px;
+    }
+    .card small { color: var(--gray); font-weight: 600; letter-spacing: 0.1px; }
+    .list {
+      margin: 0;
+      padding: 0 0 0 16px;
+      color: var(--gray);
+    }
+    .split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      align-items: center;
+    }
+    .highlight {
+      padding: 18px;
+      background: linear-gradient(120deg, rgba(215, 167, 116, 0.18), rgba(169, 121, 95, 0.12));
+      border-radius: var(--radius);
+      border: 1px solid rgba(131, 90, 68, 0.16);
+      box-shadow: var(--shadow);
+    }
+    .address {
+      margin: 8px 0 0;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(215, 167, 116, 0.18);
+      color: var(--brown);
+      font-weight: 700;
+    }
+    .cta {
+      padding: 46px 0 56px;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, #c7a48b, #e3c9b0);
+      color: var(--white);
+      border-radius: 20px;
+      padding: 28px 30px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+    .cta-box h3 { color: var(--white); margin: 0 0 6px; }
+    .cta-box p { margin: 0; color: rgba(255, 255, 255, 0.86); }
+    footer {
+      padding: 24px 0 36px;
+      background: #b08c75;
+      color: rgba(255, 255, 255, 0.92);
+    }
+    .policy {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .ghost-btn {
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      color: var(--white);
+      background: transparent;
+      cursor: pointer;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .ghost-btn:hover { background: rgba(255, 255, 255, 0.12); color: #e9f4ff; }
+    @media (max-width: 780px) {
+      .nav { flex-wrap: wrap; gap: 10px; }
+      nav ul { width: 100%; justify-content: flex-start; flex-wrap: wrap; }
+      .cta-box { grid-template-columns: 1fr; }
+      header { position: sticky; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-badge" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="presentation" aria-hidden="true">
+            <path d="M20 11c-5.5 0-10 4.5-10 10 0 1.8.4 3.4 1.2 5C7.8 28.8 6 32 6 36c0 12 11.5 22 26 22s26-10 26-22c0-4-1.8-7.2-5.2-10.1.8-1.6 1.2-3.2 1.2-4.9 0-5.5-4.5-10-10-10-4.5 0-8.6 2.7-10.5 6.6-1.2-.3-2.5-.4-3.5-.4s-2.3.1-3.5.4C28.6 13.7 24.5 11 20 11Z"/>
+          </svg>
+        </div>
+        <div>Annibook合同会社</div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">会社情報</a></li>
+          <li><a href="#app">アプリ概要</a></li>
+          <li><a href="#features">主な機能</a></li>
+          <li><a href="#users">対象ユーザー</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Annibook合同会社</h1>
+          <p class="lead">アプリ制作・HP制作・運用支援を通じて、記念日やコミュニティの価値を高めるプロダクトを伴走開発します。</p>
+          <div class="stat-lines">
+            <div class="stat">
+              <h3>アプリ/HP制作・運用</h3>
+              <p class="lead">企画からデザイン、開発、運用改善までワンストップで伴走。</p>
+            </div>
+            <div class="stat">
+              <h3>コミュニティ設計</h3>
+              <p class="lead">ファンづくりやイベント運営を見据えた機能設計・導線最適化。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="pill">会社情報</div>
+            <h2>Annibook合同会社 恵比寿オフィス</h2>
+          </div>
+          <span class="badge">Tokyo / Ebisu</span>
+        </div>
+        <div class="split">
+          <div class="highlight">
+            <h3 style="margin-bottom:6px;">所在地・ミッション</h3>
+            <p class="address" style="margin-top:6px;">〒150-0021 東京都渋谷区恵比寿西2丁目4番8号<br>ウィンド恵比寿ビル8F</p>
+            <p class="lead" style="margin-top:8px;">日常を「特別な日」に変える。地域・友人・家族・チーム、誰もが参加できるカレンダーSNSで共感を広げます。</p>
+          </div>
+          <div>
+            <h3>提供価値</h3>
+            <p class="lead" style="margin-top:6px;">自社アプリ運営で培ったノウハウを活かし、企業タイアップやアプリ開発受託まで伴走します。</p>
+            <ul class="list">
+              <li>ブランド記念日やキャンペーンの共創</li>
+              <li>花屋など業務効率化アプリの受託開発</li>
+              <li>運用改善・コミュニティ活性化の支援</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="app">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="pill">サービス概要</div>
+            <h2>アプリ制作 / HP制作・運用支援</h2>
+          </div>
+          <p>企画、デザイン、開発、運用改善まで伴走するパートナーです。</p>
+        </div>
+        <div class="split">
+          <div>
+            <h3>得意領域</h3>
+            <ul class="list">
+              <li>スマホアプリ開発（iOS/Android・Flutter等）</li>
+              <li>コーポレート/ブランド/LPなどのWebサイト制作</li>
+              <li>UI/UX設計とコミュニティ導線づくり</li>
+            </ul>
+          </div>
+          <div>
+            <h3>提供スタイル</h3>
+            <ul class="list">
+              <li>要件整理からデザイン・実装・リリースまで一貫対応</li>
+              <li>運用改善やABテスト、CVR向上の継続支援</li>
+              <li>小規模PoCや短期スプリントでの試作にも柔軟対応</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="pill">Annibookの事例</div>
+            <h2>カレンダーSNSの開発知見を活用</h2>
+          </div>
+          <p>記念日提案とカウントダウン機能の実装経験を生かし、他プロジェクトにも展開します。</p>
+        </div>
+        <ul class="list">
+          <li>記念日・イベントの投稿とリアクション（コメント/いいね/賛成）</li>
+          <li>賛成数のしきい値で自動カウントダウン登録</li>
+          <li>カレンダー表示（一覧・日別詳細）とコミュニティ導線</li>
+          <li>プロフィールやフォローなどのSNS要素</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="users">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="pill">対象ユーザー</div>
+            <h2>記念日を大切にするすべての人へ</h2>
+          </div>
+          <p>Z世代からコミュニティ、企業まで幅広くフィット。</p>
+        </div>
+        <ul class="list">
+          <li>個人・カップル：日々の記念日を仲間と共有</li>
+          <li>学校・サークル：イベントをカウントダウンで盛り上げる</li>
+          <li>地域・企業：ローカルやブランド記念日を広く届ける</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="business">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="pill">今後の収益モデル</div>
+            <h2>持続的な成長を見据えたマネタイズ</h2>
+          </div>
+          <p>ユーザー体験を軸に複数の収益ラインを設計。</p>
+        </div>
+        <div class="split">
+          <div>
+            <h3>ユーザー向け</h3>
+            <ul class="list">
+              <li>アプリ内広告（AdMob等）</li>
+              <li>プレミアムプラン（広告非表示・提案数増加）</li>
+            </ul>
+          </div>
+          <div>
+            <h3>ビジネス向け</h3>
+            <ul class="list">
+              <li>企業タイアップ（ブランド記念日投稿）</li>
+              <li>アプリ制作・運営受託（例：花屋の業務効率化アプリ）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container cta-box">
+        <div>
+          <h3>お問い合わせ・ご相談</h3>
+          <p>Email: info@annibook.jp</p>
+          <p>アプリ制作・HP制作、運用改善のご相談はお気軽にご連絡ください。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="brand" style="color: rgba(255,255,255,0.92);">
+        <div class="brand-badge" style="box-shadow:none;" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="presentation" aria-hidden="true">
+            <path d="M20 11c-5.5 0-10 4.5-10 10 0 1.8.4 3.4 1.2 5C7.8 28.8 6 32 6 36c0 12 11.5 22 26 22s26-10 26-22c0-4-1.8-7.2-5.2-10.1.8-1.6 1.2-3.2 1.2-4.9 0-5.5-4.5-10-10-10-4.5 0-8.6 2.7-10.5 6.6-1.2-.3-2.5-.4-3.5-.4s-2.3.1-3.5.4C28.6 13.7 24.5 11 20 11Z"/>
+          </svg>
+        </div>
+        <div>Annibook合同会社</div>
+      </div>
+      <p style="margin: 10px 0 0; color: rgba(255,255,255,0.78);">〒150-0021 東京都渋谷区恵比寿西2丁目4番8号 ウィンド恵比寿ビル8F</p>
+      <div class="policy">
+        <a class="ghost-btn" href="privacy.html">プライバシーポリシー</a>
+        <a class="ghost-btn" href="terms.html">利用規約</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
